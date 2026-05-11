@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер слов</title>
     <style>
         body {
@@ -12,7 +13,7 @@
             padding: 20px 10px;
             background: #f4f4f9;
         }
-        
+
         /* Стили счетчиков */
         .stats {
             font-size: 1.2rem;
@@ -22,51 +23,74 @@
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex; /* Выстраиваем в ряд */
+            display: space-around; /* Выстраиваем в ряд */
             justify-content: center;
             width: 90%; /* Адаптивная ширина */
-            max-width: 400px;
+            max-width: 450px;
+            box-sizing: border-box;
         }
-        .stat-total { color: #333; }
-        .stat-correct { color: #27ae60; margin: 0 15px; }
-        .stat-wrong { color: #e74c3c; }
+
+        .stat-total {
+            color: #333;
+        }
+
+        .stat-correct {
+            color: #27ae60;
+            margin: 0 15px;
+        }
+
+        .stat-wrong {
+            color: #e74c3c;
+        }
 
         .card {
             background: white;
+            padding: 20px;
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             /* 2. ИЗМЕНЕНО: Ширина теперь гибкая, до 400px */
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
             box-sizing: border-box; /* Чтобы padding не раздувал ширину */
             text-align: center;
         }
-        #ru-word { font-size: 1.5rem; font-weight: bold; margin-bottom: 5px; color: #333; }
+
+        #ru-word {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
         #correct-answer {
             height: 1.5rem;
             color: #4f46e5;
             font-weight: bold;
             margin-bottom: 20px;
         }
+
         #descr {
             padding: 10px;
         }
+
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
+
         button {
             padding: 15px 10px; /* Больше отступы внутри кнопок */
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             background: white;
             transition: 0.2s;
-            font-size: 1rem;
+            font-size: 1.1rem;
             -webkit-tap-highlight-color: transparent; /* Убирает синюю рамку при нажатии на iOS */
         }
+
         .level-selector {
             margin-bottom: 15px;
             display: flex;
@@ -74,11 +98,29 @@
             justify-content: center;
             gap: 8px;
         }
-        button:hover:not(:disabled) { background: #eef2ff; border-color: #4f46e5; }
-        
-        button.correct { background: #27ae60 !important; color: white; border-color: #27ae60; }
-        button.wrong { background: #e74c3c !important; color: white; border-color: #e74c3c; }
-        button.highlight-correct {background: #f39c12 !important;color: white;  border-color: #e67e22;}
+
+        button:hover:not(:disabled) {
+            background: #eef2ff;
+            border-color: #4f46e5;
+        }
+
+        button.correct {
+            background: #27ae60 !important;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        button.wrong {
+            background: #e74c3c !important;
+            color: white;
+            border-color: #e74c3c;
+        }
+
+        button.highlight-correct {
+            background: #f39c12 !important;
+            color: white;
+            border-color: #e67e22;
+        }
         /* Оранжевый */
 
 
@@ -94,6 +136,7 @@
             cursor: pointer;
             display: none;
         }
+
             .next-btn:hover {
                 background: #eef2ff;
                 border-color: #4f46e5;
